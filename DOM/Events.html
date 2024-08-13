@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <div id="images">
+        <ul>
+            <li><img src="cat_photo.jpg" id="cat" alt="" height="100px" width="100px"></li>
+            <li><img src="colgate.jpg" id="colgate" alt="" height="100px" width="100px"></li>
+            <li><img src="tedy.jpg" id="tedy" alt="" height="100px" width="100px"></li>
+            <li><img src="watch.jpg" id="watch" alt=""height="100px" width="100px"></li>
+        </ul>
+    </div>
+</body>
+<script>
+    
+    // Attach Event , jquery-On
+    // type of Event,timestamp,defaultPrevented,
+    // target, toElement, srcElement, currentTarget
+    // ClientX, ClientY, screenX, screenY
+    // Kon c key press hui hai events k through dekhte hain
+    // altkey, ctrlkey,shiftkey,
+ const alertHello=function(e){
+        alert("Hello");
+    }
+    
+    // Event Propagation 
+    // Bubbling
+    // document.getElementById('tedy').addEventListener('click',function(e){
+    //     e.stopPropagation();
+    //     console.log("Ch Ahmad");
+    // }
+    // ,false);
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("Hello Chaudhry");
+    // },false);
+    
+    // Capturing
+
+    // document.getElementById('colgate').addEventListener('click',function(e){
+    //     console.log("Sher Afgan");
+        
+    // },true);
+    // document.getElementById('images').addEventListener('click',(e)=>{console.log("Hello Shera");
+    // e.stopPropagation();},true);
+
+    // Removing images
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName==='IMG'){
+            let removeIt=e.target.parentNode;
+            removeIt.remove();
+        }
+    },false);
+    
+</script>
+</html>
